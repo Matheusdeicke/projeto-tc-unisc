@@ -26,10 +26,13 @@ if (form) {
         asterisk.style.display = 'none';
       });
     } else {
-      // Se não houver erros, mostrar os asteriscos novamente
-      asterisks.forEach(asterisk => {
-        asterisk.style.display = 'inline';
-      });
+      // Se não houver erros, redirecionar para o dashboard
+      e.preventDefault(); // Impede o envio padrão do formulário
+
+      // Aqui você pode adicionar código para autenticação com o servidor
+
+      // Redirecionar para o dashboard
+      window.location.href = 'dashboard.html'; // Substitua pelo caminho correto para o seu dashboard
     }
   });
 
@@ -73,7 +76,7 @@ if (form) {
   });
 }
 
-// ====== Validação "Esqueci minha senha" ======
+// ====== Validação Esqueci minha senha ======
 const forgotForm = document.getElementById('forgot-password-form');
 if (forgotForm) {
   const forgotMatriculaInput = document.getElementById('forgot-matricula-input');
@@ -109,3 +112,35 @@ if (forgotForm) {
   }
 }
 
+// ====== Animação Dashboard ======
+const toggleButton = document.getElementById('toggle-btn')
+const sidebar = document.getElementById('sidebar')
+
+function toggleSidebar(){
+  sidebar.classList.toggle('close')
+  toggleButton.classList.toggle('rotate')
+
+  closeAllSubMenus()
+}
+
+function toggleSubMenu(button){
+
+  if(!button.nextElementSibling.classList.contains('show')){
+    closeAllSubMenus()
+  }
+
+  button.nextElementSibling.classList.toggle('show')
+  button.classList.toggle('rotate')
+
+  if(sidebar.classList.contains('close')){
+    sidebar.classList.toggle('close')
+    toggleButton.classList.toggle('rotate')
+  }
+}
+
+function closeAllSubMenus(){
+  Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
+    ul.classList.remove('show')
+    ul.previousElementSibling.classList.remove('rotate')
+  })
+}
