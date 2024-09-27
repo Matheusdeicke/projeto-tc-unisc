@@ -107,7 +107,7 @@ if (forgotForm) {
   const backToLoginBtn = document.getElementById('backToLoginBtn');
   if (backToLoginBtn) {
     backToLoginBtn.addEventListener('click', () => {
-      window.location.href = 'index.html'; // Redireciona para a página de login (ajuste o caminho se necessário)
+      window.location.href = 'login.html'; // Redireciona para a página de login (ajuste o caminho se necessário)
     });
   }
 }
@@ -144,3 +144,19 @@ function closeAllSubMenus(){
     ul.previousElementSibling.classList.remove('rotate')
   })
 }
+
+// ====== Botão Sair ======
+const logoutButton = document.getElementById('logout-button');
+
+logoutButton.addEventListener('click', function() {
+  event.preventDefault(); // Previne o comportamento padrão do link
+  // Limpe quaisquer dados de autenticação armazenados
+  // Por exemplo, remover tokens do localStorage ou sessionStorage
+  localStorage.removeItem('authToken');
+  sessionStorage.clear();
+
+  // Redirecione o usuário para a página de login
+  window.location.replace('login.html');
+
+});
+
