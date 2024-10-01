@@ -22,7 +22,7 @@ if (form) {
       e.preventDefault();
 
       // Ocultar os asteriscos se houver erros
-      asterisks.forEach(asterisk => {
+      asterisks.forEach((asterisk) => {
         asterisk.style.display = 'none';
       });
     } else {
@@ -56,7 +56,7 @@ if (form) {
   // Remover a classe 'incorrect' e restaurar o asterisco quando o usuário começar a digitar novamente
   const allInputs = [matricula_input, password_input];
 
-  allInputs.forEach(input => {
+  allInputs.forEach((input) => {
     input.addEventListener('input', () => {
       if (input.parentElement.classList.contains('incorrect')) {
         input.parentElement.classList.remove('incorrect');
@@ -68,7 +68,7 @@ if (form) {
         }
 
         // Mostrar novamente os asteriscos quando o usuário começa a digitar
-        asterisks.forEach(asterisk => {
+        asterisks.forEach((asterisk) => {
           asterisk.style.display = 'inline';
         });
       }
@@ -86,7 +86,7 @@ if (forgotForm) {
   // Validação e envio do formulário "Esqueci minha senha"
   forgotForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Limpar mensagens de erro e feedback anteriores
     forgotMatriculaError.innerText = '';
     forgotFeedbackMessage.innerText = '';
@@ -113,42 +113,41 @@ if (forgotForm) {
 }
 
 // ====== Animação Dashboard ======
-const toggleButton = document.getElementById('toggle-btn')
-const sidebar = document.getElementById('sidebar')
+const toggleButton = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
 
-function toggleSidebar(){
-  sidebar.classList.toggle('close')
-  toggleButton.classList.toggle('rotate')
+function toggleSidebar() {
+  sidebar.classList.toggle('close');
+  toggleButton.classList.toggle('rotate');
 
-  closeAllSubMenus()
+  closeAllSubMenus();
 }
 
-function toggleSubMenu(button){
-
-  if(!button.nextElementSibling.classList.contains('show')){
-    closeAllSubMenus()
+function toggleSubMenu(button) {
+  if (!button.nextElementSibling.classList.contains('show')) {
+    closeAllSubMenus();
   }
 
-  button.nextElementSibling.classList.toggle('show')
-  button.classList.toggle('rotate')
+  button.nextElementSibling.classList.toggle('show');
+  button.classList.toggle('rotate');
 
-  if(sidebar.classList.contains('close')){
-    sidebar.classList.toggle('close')
-    toggleButton.classList.toggle('rotate')
+  if (sidebar.classList.contains('close')) {
+    sidebar.classList.toggle('close');
+    toggleButton.classList.toggle('rotate');
   }
 }
 
-function closeAllSubMenus(){
-  Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
-    ul.classList.remove('show')
-    ul.previousElementSibling.classList.remove('rotate')
-  })
+function closeAllSubMenus() {
+  Array.from(sidebar.getElementsByClassName('show')).forEach((ul) => {
+    ul.classList.remove('show');
+    ul.previousElementSibling.classList.remove('rotate');
+  });
 }
 
 // ====== Botão Sair ======
 const logoutButton = document.getElementById('logout-button');
 
-logoutButton.addEventListener('click', function() {
+logoutButton.addEventListener('click', function (event) {
   event.preventDefault(); // Previne o comportamento padrão do link
   // Limpe quaisquer dados de autenticação armazenados
   // Por exemplo, remover tokens do localStorage ou sessionStorage
@@ -157,6 +156,56 @@ logoutButton.addEventListener('click', function() {
 
   // Redirecione o usuário para a página de login
   window.location.replace('login.html');
-
 });
 
+// Função para abrir o modal
+function openModal() {
+  document.getElementById('modal').style.display = 'block';
+}
+
+// Função para fechar o modal
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+// Função para adicionar uma nova linha à tabela
+document.getElementById('addForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevenir reload da página
+
+  // Captura os valores dos inputs
+  var alunoNome = document.getElementById('alunoNome').value;
+  var alunoEmail = document.getElementById('alunoEmail').value;
+  var orientador = document.getElementById('orientador').value;
+  var banca1 = document.getElementById('banca1').value;
+  var banca2 = document.getElementById('banca2').value;
+
+  // Cria nova linha na tabela
+  var table = document.getElementById('relacao-tabela').getElementsByTagName('tbody')[0];
+  var newRow = table.insertRow();
+
+  var cell1 = newRow.insertCell(0);
+  var cell2 = newRow.insertCell(1);
+  var cell3 = newRow.insertCell(2);
+  var cell4 = newRow.insertCell(3);
+  var cell5 = newRow.insertCell(4);
+  var cell6 = newRow.insertCell(5);
+
+  cell1.innerHTML = alunoNome;
+  cell2.innerHTML = alunoEmail;
+  cell3.innerHTML = orientador;
+  cell4.innerHTML = banca1;
+  cell5.innerHTML = banca2;
+  cell6.innerHTML = '<i class="fas fa-minus-circle remove-btn" onclick="removeRow(this)"></i>';
+
+  // Fecha o modal após adicionar
+  closeModal();
+
+  // Limpa os campos do formulário
+  document.getElementById('addForm').reset();
+});
+
+// Função para remover uma linha da tabela
+function removeRow(btn) {
+  var row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}

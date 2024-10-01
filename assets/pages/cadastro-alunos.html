@@ -33,6 +33,8 @@
           <div>
             <li><a href="cadastro-alunos.html">Cadastro de Alunos</a></li>
             <li><a href="acompanhamento-tc.html">Acompanhamento de TC</a></li>
+            <li><a href="cadastro-tc.html">Cadastro TC</a></li>
+            <li><a href="notas.html">Notas</a></li>
           </div>
         </ul>
       </li>
@@ -79,6 +81,35 @@
   <main>
     <div class="container">
       <h2>TELA CADASTRO ALUNO</h2>
+      <form id="cadastro-aluno-form" action="/cadastrar-aluno" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="orientador">ID do Orientador:</label>
+          <input type="number" id="orientador" name="orientador" required>
+        </div>
+        <div class="form-group">
+          <label for="matricula">Matrícula:</label>
+          <input type="text" id="matricula" name="matricula" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+        </div>
+        <div class="form-group">
+          <label for="confirma_senha">Confirmar Senha:</label>
+          <input type="password" id="confirma_senha" name="confirma_senha" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Cadastrar Aluno</button>
+        </div>
+      </form>
     </div>
   </main>
 </body>

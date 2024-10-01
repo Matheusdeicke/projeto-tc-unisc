@@ -80,8 +80,24 @@
   </nav>
   <main>
     <div class="container">
-      <h2>TELA REUNIÕES</h2>
-      <h2>MOSTRA TODOS OS ENCONTROS QUE O ALUNO/PROFESSOR TEVE OU OS QUE ESTÃO PARA ACONTECER</h2>
+      <h2>Cadastro de TC</h2>
+      <form id="tc-form" action="cadastrar-tc" method="POST">
+        <div class="form-group">
+          <label for="tc-id">ID do TC</label>
+          <input type="number" id="tc-id" name="tc-id" required>
+        </div>
+        <div class="form-group">
+          <label for="tc-title">Título do TC</label>
+          <input type="text" id="tc-title" name="tc-title" required>
+        </div>
+        <div class="form-group">
+          <label for="tc-orientador">Nome do Orientador</label>
+          <input type="text" id="tc-orientador" name="tc-orientador" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Cadastrar TC</button>
+        </div>
+      </form>
     </div>
   </main>
 </body>

@@ -33,6 +33,8 @@
           <div>
             <li><a href="cadastro-alunos.html">Cadastro de Alunos</a></li>
             <li><a href="acompanhamento-tc.html">Acompanhamento de TC</a></li>
+            <li><a href="cadastro-tc.html">Cadastro TC</a></li>
+            <li><a href="notas.html">Notas</a></li>
           </div>
         </ul>
       </li>
@@ -78,7 +80,27 @@
   </nav>
   <main>
     <div class="container">
-      <h2>TELA CADASTRO PROFESSOR</h2>
+      <h2>Cadastro de Professor</h2>
+      <form id="professor-form" action="cadastrar-professor" method="POST">
+        <div class="form-group">
+          <label for="professor-id">ID do Professor</label>
+          <input type="number" id="professor-id" name="professor-id" required>
+        </div>
+        <div class="form-group">
+          <label for="professor-name">Nome do Professor</label>
+          <input type="text" id="professor-name" name="professor-name" required>
+        </div>
+        <div class="form-group">
+          <label for="coordenador">É Coordenador?</label>
+          <select id="coordenador" name="coordenador" required>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
     </div>
   </main>
 </body>
