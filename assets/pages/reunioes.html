@@ -80,8 +80,57 @@
   </nav>
   <main>
     <div class="container">
-      <h2>TELA REUNIÕES</h2>
-      <h2>MOSTRA TODOS OS ENCONTROS QUE O ALUNO/PROFESSOR TEVE OU OS QUE ESTÃO PARA ACONTECER</h2>
+      <h2>Ficha de Controle de Orientação</h2>
+      <!-- Informações pré-definidas do banco de dados -->
+      <div class="form-group">
+        <label for="aluno">Aluno:</label>
+        <input type="text" id="aluno" value="Nome do Aluno" readonly>
+        <label for="matricula" style="margin-left: 20px;">Matrícula:</label>
+        <input type="text" id="matricula" value="Matrícula do Aluno" readonly>
+      </div>
+      <div class="form-group">
+        <label for="titulo-trabalho">Título do Trabalho:</label>
+        <input type="text" id="titulo-trabalho" value="Título do Trabalho" readonly>
+      </div>
+      <div class="form-group">
+        <label for="orientador">Orientador:</label>
+        <input type="text" id="orientador" value="Nome do Orientador" readonly>
+      </div>
+      <!-- Tabela de reuniões -->
+      <table id="reuniao-tabela">
+        <thead>
+          <tr>
+            <th>Data da Reunião</th>
+            <th>Assunto Discutido</th>
+            <th>Assinatura do Prof.</th>
+            <th>Assinatura do Aluno</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas dinâmicas geradas aqui -->
+        </tbody>
+      </table>
+      <!-- Botão para abrir o modal -->
+      <i class="fas fa-plus-circle add-btn" onclick="openModal()"></i>
+    </div>
+    <!-- Modal para adicionar reunião -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Adicionar Reunião</h3>
+        <form id="addForm">
+          <label for="data-reuniao">Data da Reunião:</label>
+          <input type="date" id="data-reuniao" required><br><br>
+          <label for="assunto">Assunto Discutido:</label>
+          <input type="text" id="assunto" placeholder="Assunto discutido" required><br><br>
+          <label for="rubrica-prof">Assinatura do Prof.:</label>
+          <input type="text" id="rubrica-prof" placeholder="Rubrica Prof." required><br><br>
+          <label for="rubrica-aluno">Assinatura do Aluno:</label>
+          <input type="text" id="rubrica-aluno" placeholder="Rubrica Aluno" required><br><br>
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
     </div>
   </main>
 </body>

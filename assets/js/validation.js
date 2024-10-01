@@ -204,6 +204,45 @@ document.getElementById('addForm').addEventListener('submit', function (event) {
   document.getElementById('addForm').reset();
 });
 
+// Função para adicionar uma nova reunião à tabela
+document.getElementById('addForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevenir reload da página
+
+  // Captura os valores dos inputs
+  var dataReuniao = document.getElementById('data-reuniao').value;
+  var assunto = document.getElementById('assunto').value;
+  var rubricaProf = document.getElementById('rubrica-prof').value;
+  var rubricaAluno = document.getElementById('rubrica-aluno').value;
+
+  // Verificar se os campos foram preenchidos
+  if (!dataReuniao || !assunto || !rubricaProf || !rubricaAluno) {
+    alert("Todos os campos devem ser preenchidos!");
+    return;
+  }
+
+  // Cria nova linha na tabela
+  var table = document.getElementById('reuniao-tabela').getElementsByTagName('tbody')[0];
+  var newRow = table.insertRow();
+
+  var cell1 = newRow.insertCell(0);
+  var cell2 = newRow.insertCell(1);
+  var cell3 = newRow.insertCell(2);
+  var cell4 = newRow.insertCell(3);
+  var cell5 = newRow.insertCell(4);
+
+  cell1.innerHTML = dataReuniao;
+  cell2.innerHTML = assunto;
+  cell3.innerHTML = rubricaProf;
+  cell4.innerHTML = rubricaAluno;
+  cell5.innerHTML = '<i class="fas fa-minus-circle remove-btn" onclick="removeRow(this)"></i>';
+
+  // Fecha o modal após adicionar
+  closeModal();
+
+  // Limpa os campos do formulário
+  document.getElementById('addForm').reset();
+});
+
 // Função para remover uma linha da tabela
 function removeRow(btn) {
   var row = btn.parentNode.parentNode;
