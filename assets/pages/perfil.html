@@ -6,9 +6,10 @@
   <title>Controle de TC</title>
   <link rel="stylesheet" href="../css/dashboard.css">
   <script type="text/javascript" src="../js/validation.js" defer></script>
+  <script type="text/javascript" src="../js/role.js" defer></script>
   <script src="https://kit.fontawesome.com/cafbbe9ae2.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload = "main()">
   <nav id="sidebar">
     <ul>
       <li>
@@ -79,9 +80,80 @@
     </ul>
   </nav>
   <main>
-    <div class="container">
-      <h2>TELA PERFIL</h2>
-      <h2>MOSTRA DADOS BÁSICOS DO USUÁRIO</h2>
+    <div id="profile" class="container">
+      <!-- <h2>TELA PERFIL</h2>
+      <h2>MOSTRA DADOS BÁSICOS DO USUÁRIO</h2> -->
+      <h2>DADOS</h2>
+
+      <span>
+        /* Mostra campos diferentes se o usuário for professor ou aluno<br>
+        Mostrando campos para: <em id="role_changing">professor</em><br>
+        Troque o valor da variável [isTeacher] no arquivo [role.js] para ver os campos de aluno */
+      </span>
+
+      <div class="profile">
+        <div class="item1">
+          <p>
+            <em>NOME</em>
+            <span>[nome_usuario]</span>
+          </p>
+          <p>
+            <em>EMAIL</em>
+            <span>[email_usuario]</span>
+          </p>
+          <p id="matricula">
+            <em>MATRÍCULA</em>
+            <span>[Lorem ipsum]</span>
+          </p>
+          <p id="tipo">
+            <em>TIPO</em>
+            <span>[Lorem ipsum]</span>
+          </p>
+          <p id="titulo-tc">
+            <em>TÍTULO DO TC</em>
+            <span>[titulo_tc]</span>
+          </p>
+          <p id="status">
+            <em>STATUS DO TC</em>
+            <span>[Andamento/Concluido/Reprovado]</span>
+          </p>
+          <p id="orientador">
+            <em>ORIENTADOR</em>
+            <span>[Lorem ipsum]</span>
+          </p>
+          <p id="orientandos">
+            <em>ORIENTANDOS</em>
+            <span>[Lorem ipsum]</span>
+          </p>
+          <div id="bancas">
+            <p>
+              <em>BANCA 1</em>
+              <span>[Lorem ipsum]</span>
+            </p>
+            <p>
+              <em>BANCA 2</em>
+              <span>[Lorem ipsum]</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="item2">
+          <div id="student-only">
+            <div>
+              <p><em>TRABALHO DE CONCLUSÃO</em></p>
+              <p>[Lorem ipsum]</p>
+            </div>
+            <div>
+              <p><em>CRONOGRAMAS</em></p>
+              <p>[Lorem ipsum]</p>
+            </div>
+            <div>
+              <p><em>REUNIÕES</em></p>
+              <p>[Lorem ipsum]</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </body>

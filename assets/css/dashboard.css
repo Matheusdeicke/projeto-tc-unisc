@@ -149,11 +149,13 @@ main p{
 
   h2, p { margin-top: 1em }
 }
-
 .container h2{
   text-align: center;
 }
-
+.container em{
+  font-style: normal;
+  font-weight: bold;
+}
 /* TELA CRONOGRAMA */
 table {
   width: 100%;
@@ -327,4 +329,20 @@ table tr:last-child td {
       }
     }
   }
+}
+/* PERFIL */
+.profile {
+  display: grid;
+  gap: 50px;
+}
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.item2 {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.hidden {
+  display: none;
 }
