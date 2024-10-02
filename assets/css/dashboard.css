@@ -331,7 +331,7 @@ table tr:last-child td {
   }
 }
 /* PERFIL */
-.profile {
+.profile, .grades {
   display: grid;
   gap: 50px;
 }
